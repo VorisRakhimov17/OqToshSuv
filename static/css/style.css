@@ -1,0 +1,112 @@
+{% load static %}
+
+/* ✅ Bosh font va rang */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+}
+
+/* ✅ Hero section */
+.hero-section {
+    background: linear-gradient(to bottom, #0033cc, #66ccff);
+    min-height: 90vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ✅ Suv butilkasi */
+.hero-bottle {
+    max-width: 80%;
+    height: auto;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.3));
+}
+
+/* ✅ Navbar link hover */
+.nav-link:hover {
+    color: #0d6efd !important;
+}
+
+/* ✅ Button */
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+.btn-primary:hover {
+    background-color: #004cc6;
+}
+/* ✅ Business partners logos grayscale */
+.grayscale {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: 0.3s ease;
+}
+.grayscale:hover {
+    filter: none;
+    opacity: 1;
+}
+
+/* ✅ Card title */
+.card-title {
+    font-size: 1.5rem;
+}
+
+/* ✅ Card text */
+.card-text {
+    font-size: 0.875rem;
+}
+/* WHY CHOOSE US button */
+.btn-outline-primary {
+    border-radius: 30px;
+    font-size: 0.8rem;
+}
+
+/* Video section */
+.ratio iframe {
+    border-radius: 10px;
+}
+
+/* Free delivery section */
+.bg-primary {
+    background: linear-gradient(135deg, #005ce6, #00bfff);
+}
+/* Testimonial image */
+.card img.rounded-circle {
+    border: 2px solid #0d6efd;
+}
+
+/* News images */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Newsletter input */
+.form-control-lg {
+    border-radius: 30px;
+}
+
+.hero-section {
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Tog' rasmi */
+.background-image {
+    background: url('../image/tog.avif') center center / cover no-repeat;
+    filter: blur(2px);
+    z-index: 1;
+}
+
+/* Ustiga gradient overlay */
+.overlay {
+    background: rgba(0, 0, 0, 0.4); /* qoramtir shaffof qatlam */
+    z-index: 2;
+}
+
+/* Matnlar eng ustida */
+.hero-section .container {
+    z-index: 3;
+}

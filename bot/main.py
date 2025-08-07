@@ -16,10 +16,11 @@ from bot.handlers.order_menu import show_order_menu
 from bot.handlers.menu import send_main_menu
 from bot.handlers.quantity import show_product_detail, handle_quantity_change
 from bot.handlers.submit_order import handle_submit, save_location, ASK_LOCATION
-from bot.handlers.admin import show_all_orders, assign_driver_callback
+from bot.handlers.admin import show_all_orders, admin_callback_handler, show_driver_assignment_menu
 from bot.handlers.driver import (
     show_driver_orders, confirm_delivery, show_delivered_orders, show_location, paginate_driver_orders
 )
+from bot.handlers.user import show_user_orders
 
 TOKEN = '8348687758:AAHTV_AwLBMfAqpRU2YazFzUq66zlknrsYI'
 
@@ -29,12 +30,14 @@ def main():
     # ✅ Asosiy komandalar
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.CONTACT, handle_contact))
+    app.add_handler(MessageHandler(filters.Regex("^📝 Buyurtmalarim$"), show_user_orders))
 
     # ✅ Rolga mos menyular
     app.add_handler(MessageHandler(filters.Regex("^📋 Barcha buyurtmalar$"), show_all_orders))
+    app.add_handler(MessageHandler(filters.Regex("^📋 Haydovchi biriktirish$"), show_driver_assignment_menu))
+    app.add_handler(CallbackQueryHandler(admin_callback_handler, pattern="^(view_|assign_|assign_driver:)"))
     app.add_handler(MessageHandler(filters.Regex("^📦 Mening buyurtmalarim$"), show_driver_orders))
     app.add_handler(MessageHandler(filters.Regex("^📁 Yetkazib bo‘linganlar$"), show_delivered_orders))
-    app.add_handler(CallbackQueryHandler(assign_driver_callback, pattern="^assign:"))
     app.add_handler(CallbackQueryHandler(confirm_delivery, pattern="^delivered:"))
 
     # ✅ Buyurtma qilish - ConversationHandler
@@ -64,6 +67,7 @@ def main():
 
     # ✅ Mahsulot tanlanganda detal ko‘rsatish (oxirida bo‘lishi kerak!)
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, show_product_detail))
+
 
     print("✅ Bot ishga tushdi...")
     app.run_polling()

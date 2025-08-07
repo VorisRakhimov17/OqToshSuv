@@ -21,7 +21,7 @@ async def send_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if role == 'admin':
         buttons = [
             [KeyboardButton("📋 Barcha buyurtmalar")],
-            [KeyboardButton("👤 Haydovchi biriktirish")]
+            [KeyboardButton("📋 Haydovchi biriktirish")],
         ]
     elif role == 'haydovchi':
         buttons = [

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'app',
     "rest_framework",
     "corsheaders",
-    "react",
+
 
 ]
 

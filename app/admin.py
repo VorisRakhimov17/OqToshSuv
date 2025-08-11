@@ -8,6 +8,8 @@ from decimal import Decimal
 class TelegramUserAdmin(admin.ModelAdmin):
     list_display = ("avatar", "full_name", "username", "formatted_phone", "role", "created_at")
     search_fields = ("full_name", "username")
+    list_filter = ('role',)
+
 
     @admin.display(description="Phone")
     def formatted_phone(self, obj):

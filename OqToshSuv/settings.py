@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'app',
-    'landing'
+    'landing',
+    "rest_framework",
+    "corsheaders",
+    "react",
+
 ]
 
 MIDDLEWARE = [
@@ -50,9 +54,26 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = 'OqToshSuv.urls'
+
+# Devda ruxsat beriladigan frontend origin’lar
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",   # Vite
+    "http://127.0.0.1:5173",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
 
 TEMPLATES = [
     {

@@ -7,11 +7,11 @@ from asgiref.sync import sync_to_async
 
 @sync_to_async
 def get_product_names():
-    return list(Product.objects.values_list('name', flat=True))
+    return list(Product.objects.values_list('size', flat=True))
 
 def make_rows(items, per_row=3):
     """Mahsulot nomlarini gorizontal ravishda guruhlaydi"""
-    return [ [KeyboardButton(name) for name in items[i:i+per_row]] for i in range(0, len(items), per_row) ]
+    return [ [KeyboardButton(size) for size in items[i:i+per_row]] for i in range(0, len(items), per_row) ]
 
 async def show_order_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     product_names = await get_product_names()

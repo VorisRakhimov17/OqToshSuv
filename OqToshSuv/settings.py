@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'app',
-    'landing',
     "rest_framework",
     "corsheaders",
     "react",

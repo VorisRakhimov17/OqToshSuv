@@ -22,7 +22,7 @@ from bot.handlers.driver import (
 )
 from bot.handlers.user import show_user_orders
 
-TOKEN = '8348687758:AAHTV_AwLBMfAqpRU2YazFzUq66zlknrsYI'
+TOKEN = '8352067497:AAEMrj2wQ_x6Zd23MQNrFduah6A6mHJUqD4'
 
 def main():
     app = Application.builder().token(TOKEN).build()

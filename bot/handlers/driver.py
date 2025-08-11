@@ -31,10 +31,12 @@ async def send_driver_order(update_or_query, context: ContextTypes.DEFAULT_TYPE)
 
     order = orders[index]
     message = (
-        f"📦 <b>Mahsulot:</b> {order.product.name}\n"
-        f"🔢 <b>Miqdor:</b> {order.quantity}\n"
-        f"👤 <b>Mijoz:</b> {order.user.full_name}\n"
-        f"📅 <b>Sana:</b> {order.created_at.strftime('%Y-%m-%d %H:%M')}"
+        f"📦 Mahsulot: {order.product.size}\n"
+        f"🔢 Miqdor: {order.quantity}\n"
+        f"💵 Jami summa: {order.product.price * order.quantity}\n"
+        f"👤 Mijoz: {order.user.full_name}\n"
+        f"📞 Telefon raqam: {order.user.phone}\n"
+        f"📅 Sana: {order.created_at.strftime('%d.%m.%Y %H:%M')}"
     )
 
     buttons = [
@@ -156,8 +158,10 @@ async def show_delivered_orders(update: Update, context: ContextTypes.DEFAULT_TY
 
     for order in orders:
         await update.message.reply_text(
-            f"🛒 Mahsulot: {order.product.name}\n"
+            f"📦 Mahsulot: {order.product.size}\n"
             f"🔢 Miqdor: {order.quantity}\n"
+            f"💵 Jami summa: {order.product.price * order.quantity}\n"
             f"👤 Mijoz: {order.user.full_name}\n"
-            f"📆 Sana: {order.created_at.strftime('%Y-%m-%d %H:%M')}"
+            f"📞 Telefon raqam: {order.user.phone}\n"
+            f"📅 Sana: {order.created_at.strftime('%d.%m.%Y %H:%M')}"
         )

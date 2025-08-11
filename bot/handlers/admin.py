@@ -47,10 +47,12 @@ async def send_view_order(update_or_query, context: ContextTypes.DEFAULT_TYPE):
         keyboard.append([InlineKeyboardButton("📍 Manzilni ko‘rish", url=maps_url)])
 
     text = (
-        f"📦 <b>Buyurtma {index + 1} / {len(orders)}</b>\n"
-        f"🛒 {order.product.name} x {order.quantity}\n"
-        f"👤 {order.user.full_name}\n"
-        f"📅 {order.created_at.strftime('%Y-%m-%d %H:%M')}\n"
+        f"📦 <b>Buyurtma soni: {index + 1} / {len(orders)}</b>\n"
+        f"🛒 O'lchami: {order.product.size}\n"
+        f"🔢 Miqdori: {order.quantity}\n"
+        f"💵 Jami summa: {order.product.price * order.quantity}\n"
+        f"👤 Mijoz: {order.user.full_name}\n"
+        f"📅 Sana: {order.created_at.strftime('%d.%m.%Y %H:%M')}\n"
         f"🚛 Haydovchi: {order.driver.full_name if order.driver else '❌ Biriktirilmagan'}\n"
         f"📌 Status: <b>{order.status}</b>"
     )
@@ -123,9 +125,11 @@ async def send_assignable_order(update_or_query, context: ContextTypes.DEFAULT_T
 
     text = (
         f"🆕 <b>Yangi buyurtma {index + 1} / {len(orders)}</b>\n"
-        f"🛒 {order.product.name} x {order.quantity}\n"
-        f"👤 {order.user.full_name}\n"
-        f"📅 {order.created_at.strftime('%Y-%m-%d %H:%M')}\n"
+        f"🛒 O'lchami: {order.product.size}\n"
+        f"🔢 Miqdori: {order.quantity}\n"
+        f"💵 Jami summa: {order.product.price * order.quantity}\n"
+        f"👤 Mijoz: {order.user.full_name}\n"
+        f"📅 Sana: {order.created_at.strftime('%d.%m.%Y %H:%M')}\n"
         f"🚛 Haydovchi: {order.driver.full_name if order.driver else '❌ Biriktirilmagan'}"
     )
 
